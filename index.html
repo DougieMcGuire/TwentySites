@@ -1,1 +1,532 @@
-test
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twenty Sites — a small studio that designs and builds websites</title>
+<meta name="description" content="Twenty Sites is a two-person studio. We design and build twenty websites a year — words, layout, code and launch — one project at a time.">
+<meta name="theme-color" content="#08251C">
+<meta name="color-scheme" content="light dark">
+
+<link rel="canonical" href="https://twentysites.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://twentysites.com/">
+<meta property="og:site_name" content="Twenty Sites">
+<meta property="og:title" content="Twenty Sites — a small studio that designs and builds websites">
+<meta property="og:description" content="Twenty websites a year, one project at a time. Design, words, code and launch, from a studio of two.">
+<meta property="og:image" content="https://twentysites.com/assets/brand/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/brand/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0"><symbol id="mark" viewBox="0 0 760 600" fill="currentColor" fill-rule="evenodd"><path d="M237.81 598.01C236.33 597.57 231.38 594.52 226.81 591.25C219.65 586.11 212.23 581.27 204.50 576.69C203.40 576.03 202.26 575.18 201.96 574.78C201.25 573.83 174.29 560.89 172.16 560.48C171.25 560.30 170.50 560.08 170.50 560.00C170.50 559.92 169.82 559.68 169.00 559.48C168.18 559.28 162.87 557.75 157.22 556.09C129.37 547.88 100.68 547.88 72.72 556.09C67.10 557.74 61.60 559.29 60.50 559.53C57.70 560.13 56.68 560.60 36.61 570.48C13.61 581.81 11.28 581.78 4.64 570.01C-1.15 559.76 1.13 551.34 16.18 527.47C39.04 491.20 54.94 472.62 117.99 408.50C131.51 394.75 148.21 377.43 155.09 370.00C161.98 362.57 168.66 355.38 169.94 354.00C188.64 333.92 211.29 299.10 219.97 277.07C237.22 233.31 225.59 180.65 190.63 144.23C164.27 116.78 137.01 112.18 118.59 132.07C97.74 154.59 104.34 179.60 138.31 206.86C154.28 219.68 157.76 232.87 149.55 249.50C133.21 282.61 84.17 291.74 52.30 267.60C43.33 260.81 32.19 245.00 30.62 236.85C30.38 235.56 29.62 232.25 28.95 229.50C27.09 221.92 27.36 201.99 29.45 192.00C36.97 156.08 61.39 121.61 117.80 67.28C189.80 -2.08 186.08 1.00 197.95 1.00C216.68 1.00 285.93 65.47 318.26 113.00C322.19 118.78 325.90 124.01 326.50 124.62C328.03 126.18 341.25 152.00 340.52 152.00C340.20 152.00 340.49 153.01 341.18 154.25C341.87 155.49 342.47 156.72 342.53 157.00C342.58 157.28 344.07 161.99 345.82 167.47C360.35 212.92 352.80 256.41 324.21 291.95C314.04 304.61 304.16 314.38 275.00 340.64C222.43 388.00 194.91 421.77 202.62 429.47C209.79 436.65 252.97 452.87 267.22 453.74C278.51 454.43 295.59 450.84 299.00 447.05C299.27 446.74 302.08 444.81 305.22 442.75C322.29 431.60 336.83 412.99 345.84 390.75C348.49 384.22 356.13 382.42 361.43 387.08C365.96 391.05 366.52 394.29 365.09 408.28C359.21 466.14 332.01 518.66 283.38 566.05C270.50 578.61 250.27 595.58 246.50 596.98C242.29 598.56 240.41 598.78 237.81 598.01ZM556.37 586.56C535.89 581.93 505.15 554.68 473.82 513.36C399.57 415.42 374.32 313.12 401.95 222.16C413.40 184.48 440.82 132.90 462.63 108.00C463.84 106.62 468.51 100.87 473.01 95.22C502.40 58.30 547.06 17.10 562.84 12.35C584.21 5.92 609.15 19.89 649.05 60.65C676.72 88.91 697.10 115.12 716.23 147.00C726.49 164.11 739.57 189.80 739.65 193.00C739.66 193.28 740.28 194.62 741.03 196.00C741.79 197.38 742.48 198.96 742.58 199.53C742.68 200.10 744.14 204.60 745.83 209.53C762.99 259.62 763.15 317.48 746.27 373.00C744.35 379.32 742.69 384.95 742.59 385.50C742.49 386.05 741.79 387.62 741.03 389.00C740.28 390.38 739.77 391.50 739.90 391.50C741.15 391.50 731.18 413.33 723.91 426.50C700.03 469.77 672.29 505.78 633.34 544.12C596.22 580.65 577.04 591.23 556.37 586.56ZM622.86 438.49C666.91 424.57 675.00 371.11 644.50 295.50C619.36 233.22 568.41 161.81 538.37 146.79C506.71 130.96 472.90 146.97 462.86 182.55C452.58 218.97 475.43 291.35 518.87 360.00C560.43 425.68 590.81 448.61 622.86 438.49Z"/></symbol></svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead" data-masthead>
+  <div class="masthead__inner shell">
+    <a class="brand" href="#top" aria-label="Twenty Sites, home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 760 600" focusable="false"><use href="#mark"></use></svg>
+      </span>
+      <span class="brand__name">Twenty Sites</span>
+    </a>
+
+    <nav class="masthead__nav" aria-label="Sections">
+      <ul class="navlist">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--pill masthead__cta" href="#contact">Start a project</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="drawer" data-menu-toggle>
+      <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+  </div>
+
+  <div class="drawer" id="drawer" data-drawer hidden>
+    <div class="drawer__inner shell">
+      <ul class="drawer__list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+      <a class="btn btn--solid drawer__cta" href="#contact">Start a project</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ── Hero ─────────────────────────────────────────────────────── -->
+  <section class="hero" id="top">
+    <div class="shell hero__grid">
+      <div class="hero__body">
+        <h1 class="hero__title">We take on twenty websites a year.</h1>
+        <p class="lead">
+          Twenty Sites is a studio of two. We write the words, draw the pages, build the
+          thing and put it live — one project at a time, so yours gets a whole studio
+          rather than a slice of one.
+        </p>
+        <p class="hero__actions">
+          <a class="btn btn--solid" href="#work">See recent work</a>
+          <a class="btn btn--ghost" href="#contact">Book a call</a>
+        </p>
+        <p class="hero__note">
+          Booking April 2026 onward. <span class="hero__note-em">Four slots left this year.</span>
+        </p>
+      </div>
+
+      <aside class="ledger" aria-labelledby="ledger-title">
+        <h2 class="ledger__title" id="ledger-title">Last year, in full</h2>
+        <dl class="ledger__list">
+          <div class="ledger__row">
+            <dt>Sites shipped</dt>
+            <dd>20</dd>
+          </div>
+          <div class="ledger__row">
+            <dt>First call to launch</dt>
+            <dd>6 weeks</dd>
+          </div>
+          <div class="ledger__row">
+            <dt>Median page weight</dt>
+            <dd>184 kB</dd>
+          </div>
+          <div class="ledger__row">
+            <dt>Projects run late</dt>
+            <dd>1</dd>
+          </div>
+        </dl>
+        <p class="ledger__foot">The one that ran late was ours. We rebuilt this site twice.</p>
+      </aside>
+    </div>
+
+    <span class="hero__mark" aria-hidden="true">
+      <svg viewBox="0 0 760 600" focusable="false"><use href="#mark"></use></svg>
+    </span>
+  </section>
+
+  <!-- ── What a project includes ──────────────────────────────────── -->
+  <section class="band band--paper" id="includes">
+    <div class="shell">
+      <div class="band__head">
+        <h2 class="band__title">What a project includes</h2>
+        <p class="band__intro">
+          One fixed price covers the whole job. There is no phase two where the
+          interesting parts get quoted separately.
+        </p>
+      </div>
+
+      <div class="offer">
+        <article class="offer__item">
+          <h3 class="offer__title">Writing</h3>
+          <p>
+            We start with what you actually sell and who buys it, then write the pages
+            around that. Most clients arrive with a folder of copy nobody has read since
+            2019, and leave with about half as many words.
+          </p>
+        </article>
+        <article class="offer__item">
+          <h3 class="offer__title">Design</h3>
+          <p>
+            Type, spacing, colour and photography, drawn for your content rather than
+            poured into a theme. You see full pages in the browser, on a real phone, not
+            flat pictures of pages.
+          </p>
+        </article>
+        <article class="offer__item">
+          <h3 class="offer__title">Build</h3>
+          <p>
+            Written by hand — HTML, CSS and the small amount of JavaScript the page
+            genuinely needs. It loads in under a second on a phone, and it will still
+            run without maintenance in five years.
+          </p>
+        </article>
+        <article class="offer__item">
+          <h3 class="offer__title">Handover</h3>
+          <p>
+            The repository, the hosting, the domain records and a short screen recording
+            of how to change things. Then twelve months of small edits, included, no
+            hourly rate attached.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Selected work ────────────────────────────────────────────── -->
+  <!-- PLACEHOLDER CONTENT: replace these six rows with real projects before launch. -->
+  <section class="band band--pine" id="work">
+    <div class="shell">
+      <div class="band__head">
+        <h2 class="band__title">Selected work</h2>
+        <p class="band__intro">
+          Six of the last twenty. Every one of them is a business that sells something
+          real to people who can walk in the door.
+        </p>
+      </div>
+
+      <ul class="index" role="list">
+        <li class="index__row">
+          <a class="index__link" href="#contact">
+            <span class="index__name">Fenwick &amp; Sons</span>
+            <span class="index__kind">Furniture workshop</span>
+            <span class="index__scope">Brand site, made-to-order enquiries</span>
+            <span class="index__year">2025</span>
+          </a>
+        </li>
+        <li class="index__row">
+          <a class="index__link" href="#contact">
+            <span class="index__name">Harborline</span>
+            <span class="index__kind">Coastal charters</span>
+            <span class="index__scope">Booking and availability calendar</span>
+            <span class="index__year">2025</span>
+          </a>
+        </li>
+        <li class="index__row">
+          <a class="index__link" href="#contact">
+            <span class="index__name">Salt &amp; Ash</span>
+            <span class="index__kind">Restaurant group</span>
+            <span class="index__scope">Three locations, one menu system</span>
+            <span class="index__year">2025</span>
+          </a>
+        </li>
+        <li class="index__row">
+          <a class="index__link" href="#contact">
+            <span class="index__name">Merrow Clinic</span>
+            <span class="index__kind">Physiotherapy</span>
+            <span class="index__scope">Site, intake forms, online scheduling</span>
+            <span class="index__year">2024</span>
+          </a>
+        </li>
+        <li class="index__row">
+          <a class="index__link" href="#contact">
+            <span class="index__name">Northgate Press</span>
+            <span class="index__kind">Independent publisher</span>
+            <span class="index__scope">Catalogue of 400 titles</span>
+            <span class="index__year">2024</span>
+          </a>
+        </li>
+        <li class="index__row">
+          <a class="index__link" href="#contact">
+            <span class="index__name">Ora Ceramics</span>
+            <span class="index__kind">Studio pottery</span>
+            <span class="index__scope">Shop, kiln-batch releases</span>
+            <span class="index__year">2024</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Process ──────────────────────────────────────────────────── -->
+  <section class="band band--paper" id="process">
+    <div class="shell">
+      <div class="band__head">
+        <h2 class="band__title">How a project runs</h2>
+        <p class="band__intro">
+          Six weeks from the first call to a site your customers can use. Here is
+          where the time goes and what we need from you at each point.
+        </p>
+      </div>
+
+      <ol class="steps" role="list">
+        <li class="steps__item">
+          <p class="steps__when">45 minutes</p>
+          <div class="steps__body">
+            <h3 class="steps__title">The call</h3>
+            <p>
+              You describe the business and what the current site gets wrong. If we are a
+              bad fit we say so on the call and point you at someone better. If we are a
+              good fit you get a fixed price in writing within two days.
+            </p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <p class="steps__when">Week one</p>
+          <div class="steps__body">
+            <h3 class="steps__title">Words and structure</h3>
+            <p>
+              We interview you for an hour, read everything you already have, and come
+              back with the page list and the draft copy. Nothing gets designed until
+              you have signed off on what it says.
+            </p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <p class="steps__when">Weeks two &amp; three</p>
+          <div class="steps__body">
+            <h3 class="steps__title">Design in the browser</h3>
+            <p>
+              You get a link on Tuesday and Friday. Every page you look at is a real page
+              at a real width, so nobody discovers in week five that the headline does not
+              fit on a phone.
+            </p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <p class="steps__when">Weeks four &amp; five</p>
+          <div class="steps__body">
+            <h3 class="steps__title">Build and content load</h3>
+            <p>
+              We build the finished pages and move your content across — products,
+              staff, opening hours, the lot. You review on your own phone, and we fix
+              what you find.
+            </p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <p class="steps__when">Week six</p>
+          <div class="steps__body">
+            <h3 class="steps__title">Launch</h3>
+            <p>
+              Domain, certificates, redirects from the old URLs, analytics and a search
+              console that is actually verified. We sit on it for a week afterwards and
+              watch what breaks.
+            </p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <p class="steps__when">Twelve months</p>
+          <div class="steps__body">
+            <h3 class="steps__title">The year after</h3>
+            <p>
+              New staff photo, changed prices, a page for the second location — email us
+              and it is done inside two working days. Included, until the year is up.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── Pricing ──────────────────────────────────────────────────── -->
+  <section class="band band--pine" id="pricing">
+    <div class="shell">
+      <div class="band__head">
+        <h2 class="band__title">What it costs</h2>
+        <p class="band__intro">
+          Fixed prices, agreed before we start. We do not bill by the hour, because
+          you should not pay more when we are slow.
+        </p>
+      </div>
+
+      <div class="tiers">
+        <article class="tier">
+          <h3 class="tier__name">One page</h3>
+          <p class="tier__price">$3,500</p>
+          <p class="tier__for">
+            For a business whose customers need three facts: what you do, what it costs,
+            and how to reach you.
+          </p>
+          <ul class="tier__list" role="list">
+            <li>One long page, written and designed</li>
+            <li>Contact form and map</li>
+            <li>Live in three weeks</li>
+            <li>Twelve months of edits</li>
+          </ul>
+          <a class="btn btn--ghost tier__cta" href="#contact">Enquire</a>
+        </article>
+
+        <article class="tier tier--featured">
+          <h3 class="tier__name">Full site</h3>
+          <p class="tier__price">from $9,000</p>
+          <p class="tier__for">
+            Five to twelve pages. This is what most of the twenty are, and what we are
+            best at.
+          </p>
+          <ul class="tier__list" role="list">
+            <li>Copywriting for every page</li>
+            <li>Design drawn for your content</li>
+            <li>A simple editor for the parts you change</li>
+            <li>Redirects from the old site</li>
+            <li>Twelve months of edits</li>
+          </ul>
+          <a class="btn btn--solid tier__cta" href="#contact">Enquire</a>
+          <p class="tier__flag">Most projects</p>
+        </article>
+
+        <article class="tier">
+          <h3 class="tier__name">Site and shop</h3>
+          <p class="tier__price">from $16,000</p>
+          <p class="tier__for">
+            Everything in a full site, plus a catalogue people can buy from without
+            hitting a payment page from 2014.
+          </p>
+          <ul class="tier__list" role="list">
+            <li>Products, variants and stock</li>
+            <li>Checkout, tax and shipping rules</li>
+            <li>Order and dispatch emails</li>
+            <li>Staff training session</li>
+            <li>Twelve months of edits</li>
+          </ul>
+          <a class="btn btn--ghost tier__cta" href="#contact">Enquire</a>
+        </article>
+      </div>
+
+      <p class="tiers__foot">
+        Hosting for the first year is on us. After that it is roughly $12 a month, paid
+        to the host directly — not to us with a margin on top.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Questions ────────────────────────────────────────────────── -->
+  <section class="band band--paper" id="questions">
+    <div class="shell qa">
+      <div class="qa__head">
+        <h2 class="band__title">Questions we get</h2>
+        <p class="band__intro">
+          If yours is not here, ask it on the call. We would rather answer it before
+          you pay us than after.
+        </p>
+      </div>
+
+      <div class="qa__list" data-accordion>
+        <details class="qa__item" name="qa">
+          <summary class="qa__q">Can we edit the site ourselves afterwards?</summary>
+          <div class="qa__a">
+            <p>
+              Yes. The pages you change often — staff, prices, opening hours, products —
+              get a plain editor with no theme settings to break. The pages you never
+              change stay as files, which is why the site stays fast.
+            </p>
+          </div>
+        </details>
+        <details class="qa__item" name="qa">
+          <summary class="qa__q">We already have a brand and a designer. Can you just build?</summary>
+          <div class="qa__a">
+            <p>
+              Often, yes. Send us what exists. If the design is finished and the files are
+              usable, the build alone runs about 40% of the full price. If it is three
+              mood boards and a logo, we should talk about designing it properly.
+            </p>
+          </div>
+        </details>
+        <details class="qa__item" name="qa">
+          <summary class="qa__q">What do you need from us?</summary>
+          <div class="qa__a">
+            <p>
+              About six hours across six weeks: one interview, four review sessions and a
+              final read-through. Plus one named person who can say yes. Projects run late
+              when approval has to travel through a committee.
+            </p>
+          </div>
+        </details>
+        <details class="qa__item" name="qa">
+          <summary class="qa__q">Do you do photography?</summary>
+          <div class="qa__a">
+            <p>
+              We do not shoot it, but we will not let you launch with stock. We brief a
+              photographer near you and art-direct the shoot. Budget $1,200 to $2,500 for
+              a day, paid to them.
+            </p>
+          </div>
+        </details>
+        <details class="qa__item" name="qa">
+          <summary class="qa__q">What happens after the twelve months?</summary>
+          <div class="qa__a">
+            <p>
+              Nothing, unless you want it to. The site keeps working and you own every part
+              of it. Edits after that are $140 an hour, or $320 a month if you would rather
+              have us on call.
+            </p>
+          </div>
+        </details>
+        <details class="qa__item" name="qa">
+          <summary class="qa__q">Where are you, and does it matter?</summary>
+          <div class="qa__a">
+            <p>
+              Two people, one studio, working 9 to 6 UK time. Most of the twenty we have
+              never met in person. We will get on a plane if the project warrants it and
+              you are paying for the seat.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ──────────────────────────────────────────────────── -->
+  <section class="band band--deep" id="contact">
+    <div class="shell contact">
+      <div class="contact__body">
+        <h2 class="contact__title">Tell us what you are building.</h2>
+        <p class="contact__intro">
+          Email is best. Say what the business does, what the site needs to achieve, and
+          roughly when you need it live. You will hear back from one of the two of us
+          inside a working day.
+        </p>
+        <p class="contact__actions">
+          <a class="btn btn--solid" href="mailto:hello@twentysites.com?subject=New%20project">hello@twentysites.com</a>
+          <a class="btn btn--ghost" href="tel:+441234567890">+44 1234 567890</a>
+        </p>
+      </div>
+      <div class="contact__aside">
+        <h3 class="contact__aside-title">Before you write</h3>
+        <p>
+          We are a good fit for businesses spending $3,500 or more, who want one site done
+          properly rather than a retainer. We are a poor fit for marketplaces, apps
+          dressed as websites, and anything that needs to launch next week.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell footer__grid">
+    <div class="footer__brand">
+      <span class="brand__mark brand__mark--lg" aria-hidden="true">
+        <svg viewBox="0 0 760 600" focusable="false"><use href="#mark"></use></svg>
+      </span>
+      <p class="footer__wordmark">Twenty Sites</p>
+      <p class="footer__blurb">Websites, written, designed and built by two people. Twenty a year, and then we stop.</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer">
+      <h2 class="footer__heading">Studio</h2>
+      <ul role="list">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#questions">Questions</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__contact">
+      <h2 class="footer__heading">Get in touch</h2>
+      <ul role="list">
+        <li><a href="mailto:hello@twentysites.com">hello@twentysites.com</a></li>
+        <li><a href="tel:+441234567890">+44 1234 567890</a></li>
+        <li>Mon to Fri, 9–6 UK</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shell footer__base">
+    <p>© 2026 Twenty Sites</p>
+    <p>Built by hand, like everything else here.</p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
