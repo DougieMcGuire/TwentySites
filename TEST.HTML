@@ -127,6 +127,7 @@
     </div>
   </div>
 
+
 <script>
 (function(){
   const FALLBACK=["figma.com","apple.com","spotify.com","airbnb.com","stripe.com","notion.so","nike.com","github.com"];
@@ -134,7 +135,7 @@
   const dotsWrap=document.getElementById('dots'),toggle=document.getElementById('toggle');
   const lb=document.getElementById('lb'),lbFrame=document.getElementById('lbFrame'),lbNote=document.getElementById('lbNote');
   const lbDom=document.getElementById('lbDom'),lbFav=document.getElementById('lbFav'),lbOpen=document.getElementById('lbOpen'),lbNoteLink=document.getElementById('lbNoteLink');
-  let sites=[],cards=[],rotation=0,active=0,mode='mobile',timer=null;const DUR=5000;
+  let sites=[],srcLen=0,cards=[],rotation=0,active=0,mode='mobile',timer=null;const DUR=5000;
   const cache={},D2R=Math.PI/180;
   const domain=s=>s.replace(/^https?:\/\//,'').replace(/\/.*$/,'').replace(/^www\./,'');
   const favURL=d=>`https://www.google.com/s2/favicons?domain=${d}&sz=128`;
@@ -150,36 +151,40 @@
 
   function loadShot(c){const d=c.domain,key=mode+'|'+d;
     if(cache[key]){c.shot.style.backgroundImage=cache[key];c.shot.classList.add('on');c.spin.classList.add('gone');return;}
-    if(c._loading===key)return; c._loading=key;
+    if(c._loading===key)return;c._loading=key;
     c.shot.classList.remove('on');c.spin.classList.remove('gone');
     chain([thumb(d,mode==='mobile'),mshots(d,mode==='mobile'?600:1280)],tint(d),(bg)=>{
       cache[key]=bg;if(c._loading===key)c._loading=null;
       c.shot.style.backgroundImage=bg;c.shot.classList.add('on');c.spin.classList.add('gone');});}
 
-  const step=()=>360/sites.length;
-
   function place(){
-    const w=cardWidth(),N=sites.length,st=step();
-    const R = mode==='mobile'? w*1.42 : w*1.36;   // ring radius (wide enough that neighbours stay behind the front plane => no phasing)
+    const w=cardWidth(),N=sites.length,st=360/N,stR=st*D2R;
+    const SIDE=(mode==='mobile'?1.0:0.95)*w;           // neighbour sits ~1 card-width aside, always
+    const R=SIDE/Math.sin(stR);                         // radius derived from step => consistent look, no overlap
     cards.forEach((c,i)=>{
-      const angDeg = rotation + i*st;
-      const a=angDeg*D2R, cs=Math.cos(a), sn=Math.sin(a);
-      const tx=sn*R, tz=(cs-1)*R, sc=0.55+0.45*cs;
-      let op = cs>0.86?1 : cs>0.42?0.5 : 0;
+      const ang=rotation+i*st;
+      let na=((ang%360)+360)%360; if(na>180)na-=360;    // wrapped angle for visibility
+      const aoff=Math.abs(na)/st;                        // distance in slots from front
+      const a=ang*D2R,cs=Math.cos(a),sn=Math.sin(a);
+      const tx=sn*R, tz=(cs-1)*R;
+      const op = aoff<0.5?1 : aoff<1.5?0.5 : 0;          // exactly 3 visible, regardless of list length
+      const sc = aoff<0.5?1 : 0.84;
       c.el.style.width=w+'px';
-      c.el.style.zIndex=Math.round((cs+1)*100);
+      c.el.style.zIndex=Math.round(1000-Math.abs(na));
       c.el.style.opacity=op;
       c.el.style.pointerEvents=op>0?'auto':'none';
       c.el.classList.toggle('active',op>0.9);
-      c.el.style.transform=`translate(-50%,-50%) translateX(${tx}px) translateZ(${tz}px) rotateY(${angDeg}deg) scale(${sc})`;
-      if(cs>0.3)loadShot(c);
+      c.el.style.transform=`translate(-50%,-50%) translateX(${tx}px) translateZ(${tz}px) rotateY(${ang}deg) scale(${sc})`;
+      if(aoff<1.6)loadShot(c);
     });
     active=((Math.round(-rotation/st)%N)+N)%N;
-    [...dotsWrap.children].forEach((n,k)=>n.classList.toggle('on',k===active));
+    const dotI=((active%srcLen)+srcLen)%srcLen;
+    [...dotsWrap.children].forEach((n,k)=>n.classList.toggle('on',k===dotI));
   }
-
-  function go(dir){rotation-=dir*step();place();restart();}         // spin around the pole; continuous, spam-safe
-  function to(i){let d=((i-active)%sites.length+sites.length)%sites.length;if(d>sites.length/2)d-=sites.length;rotation-=d*step();place();restart();}
+  const step=()=>360/sites.length;
+  function go(dir){rotation-=dir*step();place();restart();}
+  function to(dotIdx){const N=sites.length,st=step();let r=((active%srcLen)+srcLen)%srcLen;
+    let d=dotIdx-r; d=((d%srcLen)+srcLen)%srcLen; if(d>srcLen/2)d-=srcLen; rotation-=d*st;place();restart();}
   function restart(){clearInterval(timer);if(!lb.classList.contains('open'))timer=setInterval(()=>go(1),DUR);}
   function setMode(m){if(m===mode)return;mode=m;
     scene.classList.toggle('mode-mobile',m==='mobile');scene.classList.toggle('mode-desktop',m==='desktop');
@@ -208,10 +213,10 @@
         </div></div>`;
       const c={el,domain:d,shot:el.querySelector('.shot'),spin:el.querySelector('.spin'),_loading:null};
       el.querySelectorAll('.chrome img,.mcap img').forEach(im=>{const f=favURL(d),t=new Image();t.onload=()=>{im.src=f;im.classList.add('on');};t.src=f;});
-      el.querySelector('.frame').addEventListener('click',()=>{ idx===active?openLB(d):to(idx); });
+      el.querySelector('.frame').addEventListener('click',()=>{ idx===active?openLB(d):null; });
       stage.appendChild(el);cards.push(c);
-      const dot=document.createElement('i');dot.onclick=()=>to(idx);dotsWrap.appendChild(dot);
     });
+    for(let k=0;k<srcLen;k++){const dot=document.createElement('i');dot.onclick=()=>to(k);dotsWrap.appendChild(dot);}
     place();restart();
   }
 
@@ -223,13 +228,18 @@
     if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1);});
   let sx=null;scene.addEventListener('pointerdown',e=>sx=e.clientX);
   scene.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx;if(Math.abs(dx)>45)go(dx<0?1:-1);sx=null;});
-  // debounced resize -> re-layout only (cache prevents any re-fetch on zoom)
   let rt=null;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(place,120);});
 
+  function boot(list){
+    const s=list.length?list:FALLBACK;
+    srcLen=s.length;
+    let rep=s.slice(); while(rep.length<7) rep=rep.concat(s);   // pad ring so neighbours are always visible
+    sites=rep; build();
+  }
   fetch('clientsites.txt').then(r=>{if(!r.ok)throw 0;return r.text()})
-    .then(t=>{const l=t.split(/\r?\n/).map(s=>s.trim()).filter(s=>s&&!s.startsWith('#')).map(domain);sites=l.length?l:FALLBACK;build();})
-    .catch(()=>{sites=FALLBACK;build();});
+    .then(t=>boot(t.split(/\r?\n/).map(s=>s.trim()).filter(s=>s&&!s.startsWith('#')).map(domain)))
+    .catch(()=>boot([]));
 })();
 </script>
-</body>c
+</body>
 </html>
